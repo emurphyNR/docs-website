@@ -1432,19 +1432,34 @@ Line supports multiple nrql queries.
     title="Input"
   >
     ```
+{
+  "name": "Inventory Dashboard",
+  "permissions": "PUBLIC_READ_WRITE",
+  "pages": [
     {
-      widgets: {
-       visualization: "infra.inventory"
-        configuration: null
-        rawConfiguration: {
-          accountId: 12345678,  
-          filters: {
-              providerAccountId: "<var>1</var>"
-             }
-          sources: ["<var>aws/elastocache/cluster</var>","<var>aws/elasticache/node</var>"]
+      "widgets": [
+        {
+          "visualization": {
+            "id": "infra.mini-inventory"
+          },
+          "layout": {
+            "column": 1,
+            "row": 1,
+            "height": 3,
+            "width": 8
+          },
+          "title": "",
+          "rawConfiguration": {
+            "accountId": 1,
+            "filterBySource": [
+              "packages/windows_programs"
+            ]
+          }
         }
-      }
+      ]
     }
+  ]
+}
     ```
   </Collapser>
 
